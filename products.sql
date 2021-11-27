@@ -8,7 +8,7 @@ USE assignment3;
 CREATE TABLE Face_products (
 ProductID int NOT NULL,
 ProductName varchar(50) NOT NULL,
-ProductPrice float(6, 2) NOT NULL,
+ProductPrice float(6) NOT NULL,
 InStock boolean,
 constraint product_id_pk Primary key (ProductID)
 );
