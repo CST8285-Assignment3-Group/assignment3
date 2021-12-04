@@ -39,17 +39,17 @@ class productDAO extends abstractDAO {
         $result = $stmt->get_result();
         if($result->num_rows == 1){
             $temp = $result->fetch_assoc();
-            $makeup = new Makeup($temp['productId'], $temp['productName'],  $temp['productPrice'], $temp['inStock']);
+            $product = new Product($temp['productId'], $temp['productName'],  $temp['productPrice'], $temp['inStock']);
             $result->free();
-            return $makeup;
+            return $product;
         }
         $result->free();
         return false;
     }
 
-    public function addMakeup($makeup){
-        if(!is_numeric($makeup->getMakeupId())){
-            return 'MakeupId must be a number.';
+    public function addProduct($product){
+        if(!is_numeric($makeup->getProductId())){
+            return 'ProductId must be a number.';
         }
         if(!$this->mysqli->connect_errno){
         
@@ -68,7 +68,7 @@ class productDAO extends abstractDAO {
             if($stmt->error){
                 return $stmt->error;
             } else {
-                return $employee->getProductName() . ' ' . $employee->ProductPrice() . ' added successfully, not bad!';
+                return $product->getProductName() . ' ' . $product->ProductPrice() . ' added successfully, not bad!';
             }
         } else {
             return 'Could not connect to Database.';
