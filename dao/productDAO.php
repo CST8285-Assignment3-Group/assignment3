@@ -2,7 +2,7 @@
 require_once('./abstractDAO.php');
 require_once('../model/product.php');
 
-class makeupDAO extends abstractDAO {
+class productDAO extends abstractDAO {
         
     function __construct() {
         try{
