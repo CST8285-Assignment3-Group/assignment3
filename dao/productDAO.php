@@ -2,7 +2,7 @@
 require_once('./abstractDAO.php');
 require_once('../model/product.php');
 
-class makeupDAO extends abstractDAO {
+class productDAO extends abstractDAO {
         
     function __construct() {
         try{
@@ -91,7 +91,7 @@ class makeupDAO extends abstractDAO {
         }
     }
     
-    public function editMakeup($productId, $productName, $productPrice, $inStock){
+    public function editProduct($productId, $productName, $productPrice, $inStock){
         if(!$this->mysqli->connect_errno){
             $query = 'UPDATE products SET productName = ?, productPrice = ?, inStock = ? WHERE productId = ?';
             $stmt = $this->mysqli->prepare($query);
