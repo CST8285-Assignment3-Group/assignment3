@@ -60,7 +60,7 @@ class productDAO extends abstractDAO {
             $stmt->bind_param('iss', 
                     $product->getProductId(), 
                     $product->getProductName(), 
-                    $product->getProductPrice()
+                    $product->getProductPrice(),
                     $product->getInStock());
       // there's an error here
             $stmt->execute();
