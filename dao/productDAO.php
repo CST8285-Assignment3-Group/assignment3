@@ -12,7 +12,7 @@ class makeupDAO extends abstractDAO {
         }
     }
     
-    public function getMakeups(){
+    public function getProducts(){
 
         $result = $this->mysqli->query('SELECT * FROM products');
         $makeups = Array();
@@ -20,8 +20,8 @@ class makeupDAO extends abstractDAO {
         if($result->num_rows >= 1){
             while($row = $result->fetch_assoc()){
            
-                $employee = new Employee($row['productId'], $row['productName'], $row['productPrice'], $row['inStock']);
-                $makeups[] = $product;
+                $product = new Product($row['productId'], $row['productName'], $row['productPrice'], $row['inStock']);
+                $products[] = $product;
             }
             $result->free();
             return $products;
@@ -58,10 +58,10 @@ class makeupDAO extends abstractDAO {
             $stmt = $this->mysqli->prepare($query);
         
             $stmt->bind_param('iss', 
-                    $employee->getProductId(), 
-                    $employee->getProductName(), 
-                    $employee->getProductPrice()
-                    $employee->getInStock());
+                    $product->getProductId(), 
+                    $product->getProductName(), 
+                    $product->getProductPrice()
+                    $product->getInStock());
       // there's an error here
             $stmt->execute();
             
