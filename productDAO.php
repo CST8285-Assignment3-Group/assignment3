@@ -2,7 +2,7 @@
 require_once('abstractDAO.php');
 require_once('./model/product.php');
 
-class makeupDAO extends abstractDAO {
+class productDAO extends abstractDAO {
         
     function __construct() {
         try{
@@ -12,15 +12,15 @@ class makeupDAO extends abstractDAO {
         }
     }
     
-    public function getMakeups(){
+    public function getProducts(){
 
         $result = $this->mysqli->query('SELECT * FROM products');
-        $makeups = Array();
+        $products = Array();
         
         if($result->num_rows >= 1){
             while($row = $result->fetch_assoc()){
            
-                $employee = new Employee($row['productId'], $row['productName'], $row['productPrice'], $row['inStock']);
+                $product = new Product($row['productId'], $row['productName'], $row['productPrice'], $row['inStock']);
                 $makeups[] = $product;
             }
             $result->free();
@@ -39,17 +39,17 @@ class makeupDAO extends abstractDAO {
         $result = $stmt->get_result();
         if($result->num_rows == 1){
             $temp = $result->fetch_assoc();
-            $makeup = new Makeup($temp['productId'], $temp['productName'],  $temp['productPrice'], $temp['inStock']);
+            $product = new Product($temp['productId'], $temp['productName'],  $temp['productPrice'], $temp['inStock']);
             $result->free();
-            return $makeup;
+            return $product;
         }
         $result->free();
         return false;
     }
 
-    public function addMakeup($makeup){
-        if(!is_numeric($makeup->getMakeupId())){
-            return 'MakeupId must be a number.';
+    public function addProduct($product){
+        if(!is_numeric($product->getProductId())){
+            return 'ProductId must be a number.';
         }
         if(!$this->mysqli->connect_errno){
         
@@ -68,7 +68,7 @@ class makeupDAO extends abstractDAO {
             if($stmt->error){
                 return $stmt->error;
             } else {
-                return $employee->getProductName() . ' ' . $employee->ProductPrice() . ' added successfully, not bad!';
+                return $product->getProductName() . ' ' . $employee->ProductPrice() . ' added successfully, not bad!';
             }
         } else {
             return 'Could not connect to Database.';
@@ -91,7 +91,7 @@ class makeupDAO extends abstractDAO {
         }
     }
     
-    public function editMakeup($productId, $productName, $productPrice, $inStock){
+    public function editProduct($productId, $productName, $productPrice, $inStock){
         if(!$this->mysqli->connect_errno){
             $query = 'UPDATE products SET productName = ?, productPrice = ?, inStock = ? WHERE productId = ?';
             $stmt = $this->mysqli->prepare($query);
