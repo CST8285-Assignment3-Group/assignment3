@@ -1,6 +1,6 @@
 <?php
-require_once('./abstractDAO.php');
-require_once('../model/product.php');
+require_once('abstractDAO.php');
+require_once('./model/product.php');
 
 class productDAO extends abstractDAO {
         
