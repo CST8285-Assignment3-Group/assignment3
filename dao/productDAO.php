@@ -15,7 +15,7 @@ class productDAO extends abstractDAO {
     public function getProducts(){
 
         $result = $this->mysqli->query('SELECT * FROM products');
-        $makeups = Array();
+        $products = Array();
         
         if($result->num_rows >= 1){
             while($row = $result->fetch_assoc()){
@@ -48,12 +48,12 @@ class productDAO extends abstractDAO {
     }
 
     public function addProduct($product){
-        if(!is_numeric($makeup->getProductId())){
+        if(!is_numeric($product->getProductId())){
             return 'ProductId must be a number.';
         }
         if(!$this->mysqli->connect_errno){
         
-            $query = 'INSERT INTO makeups VALUES (?,?,?,?)';
+            $query = 'INSERT INTO products VALUES (?,?,?,?)';
         
             $stmt = $this->mysqli->prepare($query);
         
