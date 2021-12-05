@@ -33,7 +33,7 @@ exit;
         }
         if(isset($_GET['missingFields'])){
                 if($_GET['missingFields']){
-                    echo '<h3 style="color:red;"> Please enter product name, price and if it's in stock.</h3>';
+                    echo '<h3 style="color:red;'> Please enter product name, price and if it's in stock.</h3>';
                 }
         }?>
         <h3>Edit Product</h3>
