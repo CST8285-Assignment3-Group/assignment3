@@ -1,0 +1,43 @@
+
+.main{
+	display:flex;
+}
+
+.main div{
+	margin:25px;
+}
+
+table{
+	border-collapse: collapse;
+	margin:15px;
+	
+}
+
+table td{
+	padding:15px;
+border: 2px solid red; 
+}
+
+
+.link {
+	color:red;
+	
+	
+	margin-left: 10px;
+}
+
+/*Style for the input fields*/
+.input{
+	width:200px;
+	display:flex;
+	margin:15px;
+	justify-content:space-between;
+	
+	
+}
+
+li{
+	list-style-type: none;
+	color:green;
+	
+}
