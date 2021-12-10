@@ -1,17 +1,21 @@
-
+-- insert drop database statement
 DROP database if exists catalog;
+--create database statement
 create database catalog;
 use catalog;
 
+-- insert drop table statements 
 DROP TABLE IF EXISTS Catalog_products;
 DROP TABLE IF EXISTS Catalog_categories;
 
+-- create table for the categories 
 Create TABLE Catalog_categories( 
  id integer auto_increment, 
  category_name VARCHAR(45) NOT NULL, 
  Constraint category_PK Primary key (id)
 );
 
+-- create table for the products 
 Create TABLE Catalog_products(
  product_code VARCHAR(45) NOT NULL, 
  product_name VARCHAR(45) NOT NULL, 
@@ -21,9 +25,12 @@ Create TABLE Catalog_products(
  Constraint category_FK Foreign key (category_id) References Catalog_categories(id)
 );
 
+-- insert statements for each category 
 insert into Catalog_categories(category_name) values('Lips');
 insert into Catalog_categories(category_name) values('Eyes');
 insert into Catalog_categories(category_name) values('Face');
+
+-- insert specific products with applicable values 
 insert into Catalog_products(product_code,product_name,product_price, category_id) values('L1100','Lipstick',20.00,1);
 insert into Catalog_products(product_code,product_name,product_price, category_id) values('F1100','Foundation',60.00,3);
 insert into Catalog_products(product_code,product_name,product_price, category_id) values('E1100','Mascara',20.00,2);
