@@ -13,10 +13,10 @@ include "DAO.php";
 //connection to the database
 $connection=get_connection();
 
-	
+// condition to save the product if it exists and output a success statement to the user 	
 if(isset($_POST['code'])){
 	if(save_product($connection, $_POST['code'], $_POST['name'],$_POST['price'],$_POST['category'])){
-		echo '<h1>Product sucsessfully saved</h1>';
+		echo '<h1>Product successfully saved</h1>';
 		echo '<a class="link" href="new_product.php">Create new product</a>';
 	}
 	
@@ -30,6 +30,7 @@ echo '<form method="POST" action="new_product.php">
 <div class ="input"><label>Name</label><input type="text" name="name"></div>
 <div class ="input"><label>Price</label><input type="text" name="price"></div>';
 
+// returns array of category if it exist
 echo'<div class ="input"><label>Category</label><select name="category">';
 while($row = $categories ->fetch_assoc()){
        echo '<option value='.$row['id'].'>'.$row['category_name'].'</option>';
