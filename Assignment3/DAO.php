@@ -9,7 +9,7 @@ $query = "select * from Catalog_categories";
 return $connection->query($query);
 }
 
-//execute query for produce code, name and price dpending on product category 
+//execute query for produce code, name and price depending on product category 
 function get_products($connection, $category){
 $query = "select p.product_code, p.product_name, p.product_price from Catalog_products p join  Catalog_categories c on p.category_id=c.id where c.category_name='".$category."'";
 return $connection->query($query);
