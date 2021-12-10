@@ -1,6 +1,7 @@
 
 <?php
 
+//create function that gets the list of the product categories 
 function get_product_categories($connection){
 
 $query = "select * from Catalog_categories";
