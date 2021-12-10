@@ -21,6 +21,7 @@ $query = 'insert into Catalog_products(product_code,product_name,product_price, 
 return $connection->query($query);
 }
 
+//connect MySQL database to php using MySQLi
 function get_connection(){
 	include "connection_settings.php";
 	return new mysqli($host, $user, $password, $database);
