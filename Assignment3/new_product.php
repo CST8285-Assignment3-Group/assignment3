@@ -4,7 +4,7 @@
 
 <head>
     <title>Insert Product</title>
-    <link href="styles.css" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet">
 </head>
 <body>
 <?php

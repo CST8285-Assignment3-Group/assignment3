@@ -5,6 +5,7 @@
 	<link href="styles.css" rel="stylesheet">
 </head>
 <body>
+<h1> The Makeup Shop's Inventory </h1>
 <h3>Product list:</h3>
 <div class='main'>
 <?php
@@ -29,7 +30,7 @@ while($row = $categories ->fetch_assoc()){
 		$current_category=$row['category_name'];
 		$i++;
 	}
-       echo '<li><a href="?category='.$row['category_name'].'">'.$row['category_name'].'</a></li>' ;
+       echo '<button><a href="?category='.$row['category_name'].'">'.$row['category_name'].'</a></button>' ;
 	}
 echo'</ul></div>';
 echo'<div>';
