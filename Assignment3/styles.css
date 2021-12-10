@@ -1,4 +1,4 @@
-
+/*Format the main content of the webpage*/
 .main{
 	display:flex;
 }
@@ -7,18 +7,20 @@
 	margin:25px;
 }
 
+/*Format the table to ensure proper margin*/
 table{
 	border-collapse: collapse;
 	margin:15px;
 	
 }
 
+/*Format the table data*/
 table td{
 	padding:15px;
 border: 2px solid red; 
 }
 
-
+/*Format for the link*/
 .link {
 	color:red;
 	
@@ -36,6 +38,7 @@ border: 2px solid red;
 	
 }
 
+/*Format for the list of categories*/
 li{
 	list-style-type: none;
 	color:green;
