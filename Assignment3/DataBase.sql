@@ -1,5 +1,6 @@
 -- insert drop database statement
 DROP database if exists catalog;
+
 -- create database statement
 create database catalog;
 use catalog;
