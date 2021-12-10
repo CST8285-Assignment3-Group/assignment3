@@ -23,7 +23,7 @@ $i=0;
 echo'<div>
 <h3>Categories</h3>
 <ul>';
-//list of categories using the fetch association array
+//return the list of categories using the fetch association array
 while($row = $categories ->fetch_assoc()){
 	if($i==0 and $current_category==''){
 		$current_category=$row['category_name'];
